@@ -2530,97 +2530,10 @@
      TIMETABLE JAVASCRIPT
 ===================================================== -->
 
-<script>
+<script src="js/app.js"></script>
 
-document.addEventListener(
-    "DOMContentLoaded",
-    function () {
-
-        const dayButtons =
-            document.querySelectorAll(
-                ".day-button"
-            );
-
-
-        const schedules =
-            document.querySelectorAll(
-                ".day-schedule"
-            );
-
-
-        dayButtons.forEach(button => {
-
-            button.addEventListener(
-                "click",
-                function () {
-
-                    const selectedDay =
-                        this.dataset.day;
-
-
-                    /*
-                       Remove active state
-                       from every day button.
-                    */
-
-                    dayButtons.forEach(btn => {
-
-                        btn.classList.remove(
-                            "active"
-                        );
-
-                    });
-
-
-                    /*
-                       Activate selected day.
-                    */
-
-                    this.classList.add(
-                        "active"
-                    );
-
-
-                    /*
-                       Hide all schedules.
-                    */
-
-                    schedules.forEach(schedule => {
-
-                        schedule.classList.remove(
-                            "active"
-                        );
-
-                    });
-
-
-                    /*
-                       Show selected schedule.
-                    */
-
-                    const selectedSchedule =
-                        document.querySelector(
-                            `[data-schedule="${selectedDay}"]`
-                        );
-
-
-                    if (selectedSchedule) {
-
-                        selectedSchedule.classList.add(
-                            "active"
-                        );
-
-                    }
-
-                }
-            );
-
-        });
-
-    }
-);
-
-</script>
+</body>
+</html>
 
 
 </body>
