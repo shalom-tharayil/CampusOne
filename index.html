@@ -2103,37 +2103,411 @@
      OTHER MODULES
 ===================================================== -->
 
+
 <section id="attendancePage" class="page">
 
     <div class="page-heading">
+        <h1>Attendance</h1>
+        <p>Track your attendance and academic calendar.</p>
+    </div>
 
-        <h1>
-            Attendance
-        </h1>
 
-        <p>
-            View your attendance history and percentage.
-        </p>
+    <!-- OVERALL ATTENDANCE -->
+
+    <div class="attendance-overview">
+
+        <div class="attendance-circle">
+
+            <div class="attendance-circle-inner">
+                <strong>86%</strong>
+                <span>Overall</span>
+            </div>
+
+        </div>
+
+
+        <div class="attendance-summary">
+
+            <h2>Good Attendance</h2>
+
+            <p>
+                Your attendance is above the minimum
+                required percentage.
+            </p>
+
+            <div class="attendance-numbers">
+
+                <div>
+                    <strong>86</strong>
+                    <span>Present</span>
+                </div>
+
+                <div>
+                    <strong>14</strong>
+                    <span>Absent</span>
+                </div>
+
+                <div>
+                    <strong>100</strong>
+                    <span>Total</span>
+                </div>
+
+            </div>
+
+        </div>
 
     </div>
 
-    <div class="empty-page-card">
 
-        ✓
+    <!-- ATTENDANCE WARNING -->
 
-        <h2>
-            Attendance Module
-        </h2>
+    <div class="attendance-alert">
 
-        <p>
-            Attendance history and academic
-            calendar will be added next.
-        </p>
+        <span class="alert-icon">✓</span>
+
+        <div>
+
+            <strong>Attendance is satisfactory</strong>
+
+            <p>
+                You currently have 86% attendance.
+                Minimum required: 75%.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- SUBJECT WISE -->
+
+    <div class="dashboard-card attendance-card">
+
+        <div class="card-header">
+
+            <div>
+                <h2>Subject-wise Attendance</h2>
+                <p>Your attendance for each subject.</p>
+            </div>
+
+        </div>
+
+
+        <div class="subject-attendance-list">
+
+
+            <div class="subject-attendance">
+
+                <div class="subject-info">
+
+                    <strong>Data Mining</strong>
+
+                    <span>BCM6B14</span>
+
+                </div>
+
+                <div class="attendance-bar-container">
+
+                    <div class="attendance-bar">
+                        <span style="width: 92%;"></span>
+                    </div>
+
+                    <strong>92%</strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="subject-attendance">
+
+                <div class="subject-info">
+
+                    <strong>Java Programming</strong>
+
+                    <span>BCS6B12</span>
+
+                </div>
+
+                <div class="attendance-bar-container">
+
+                    <div class="attendance-bar">
+                        <span style="width: 88%;"></span>
+                    </div>
+
+                    <strong>88%</strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="subject-attendance">
+
+                <div class="subject-info">
+
+                    <strong>Computer Networks</strong>
+
+                    <span>BCS6B10</span>
+
+                </div>
+
+                <div class="attendance-bar-container">
+
+                    <div class="attendance-bar">
+                        <span style="width: 78%;"></span>
+                    </div>
+
+                    <strong>78%</strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="subject-attendance">
+
+                <div class="subject-info">
+
+                    <strong>Web Technology</strong>
+
+                    <span>BCS6B08</span>
+
+                </div>
+
+                <div class="attendance-bar-container">
+
+                    <div class="attendance-bar">
+                        <span style="width: 85%;"></span>
+                    </div>
+
+                    <strong>85%</strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="subject-attendance">
+
+                <div class="subject-info">
+
+                    <strong>Project</strong>
+
+                    <span>BCS6B16</span>
+
+                </div>
+
+                <div class="attendance-bar-container">
+
+                    <div class="attendance-bar">
+                        <span style="width: 95%;"></span>
+                    </div>
+
+                    <strong>95%</strong>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- HISTORY -->
+
+    <div class="dashboard-card attendance-card">
+
+        <div class="card-header">
+
+            <div>
+                <h2>Attendance History</h2>
+                <p>Recent attendance records.</p>
+            </div>
+
+            <select class="attendance-filter">
+                <option>August 2026</option>
+                <option>July 2026</option>
+                <option>June 2026</option>
+            </select>
+
+        </div>
+
+
+        <div class="attendance-history">
+
+
+            <div class="history-row">
+
+                <div class="history-date">
+                    <strong>25</strong>
+                    <span>Aug</span>
+                </div>
+
+                <div class="history-subject">
+                    <strong>Data Mining</strong>
+                    <span>09:00 AM</span>
+                </div>
+
+                <span class="attendance-present">
+                    Present
+                </span>
+
+            </div>
+
+
+            <div class="history-row">
+
+                <div class="history-date">
+                    <strong>25</strong>
+                    <span>Aug</span>
+                </div>
+
+                <div class="history-subject">
+                    <strong>Java Programming</strong>
+                    <span>10:15 AM</span>
+                </div>
+
+                <span class="attendance-present">
+                    Present
+                </span>
+
+            </div>
+
+
+            <div class="history-row">
+
+                <div class="history-date">
+                    <strong>25</strong>
+                    <span>Aug</span>
+                </div>
+
+                <div class="history-subject">
+                    <strong>Computer Networks</strong>
+                    <span>11:30 AM</span>
+                </div>
+
+                <span class="attendance-absent">
+                    Absent
+                </span>
+
+            </div>
+
+
+            <div class="history-row">
+
+                <div class="history-date">
+                    <strong>22</strong>
+                    <span>Aug</span>
+                </div>
+
+                <div class="history-subject">
+                    <strong>Web Technology</strong>
+                    <span>01:30 PM</span>
+                </div>
+
+                <span class="attendance-present">
+                    Present
+                </span>
+
+            </div>
+
+
+            <div class="history-row">
+
+                <div class="history-date">
+                    <strong>21</strong>
+                    <span>Aug</span>
+                </div>
+
+                <div class="history-subject">
+                    <strong>Data Mining</strong>
+                    <span>09:00 AM</span>
+                </div>
+
+                <span class="attendance-present">
+                    Present
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <!-- ACADEMIC CALENDAR -->
+
+    <div class="dashboard-card attendance-card">
+
+        <div class="card-header">
+
+            <div>
+                <h2>Academic Calendar</h2>
+                <p>Important academic dates.</p>
+            </div>
+
+            <button class="text-btn">
+                View Calendar
+            </button>
+
+        </div>
+
+
+        <div class="calendar-events">
+
+            <div class="calendar-event">
+
+                <div class="calendar-date">
+                    <strong>01</strong>
+                    <span>SEP</span>
+                </div>
+
+                <div>
+                    <strong>Semester Classes</strong>
+                    <p>Regular classes continue.</p>
+                </div>
+
+            </div>
+
+
+            <div class="calendar-event">
+
+                <div class="calendar-date">
+                    <strong>15</strong>
+                    <span>SEP</span>
+                </div>
+
+                <div>
+                    <strong>Internal Examination</strong>
+                    <p>Class test / internal assessment.</p>
+                </div>
+
+            </div>
+
+
+            <div class="calendar-event">
+
+                <div class="calendar-date">
+                    <strong>10</strong>
+                    <span>OCT</span>
+                </div>
+
+                <div>
+                    <strong>Semester Examination</strong>
+                    <p>End semester examination begins.</p>
+                </div>
+
+            </div>
+
+        </div>
 
     </div>
 
 </section>
-
 
 <section id="examsPage" class="page">
 
