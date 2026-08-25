@@ -1545,3 +1545,315 @@ img {
         transition-duration: 0.01ms !important;
     }
   }
+/* =====================================================
+   STUDENT TIMETABLE
+===================================================== */
+
+.week-selector {
+    display: grid;
+
+    grid-template-columns:
+        repeat(6, minmax(0, 1fr));
+
+    gap: 8px;
+
+    margin-bottom: 18px;
+}
+
+.day-button {
+    padding: 11px 7px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 4px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 11px;
+
+    background: var(--surface);
+
+    color: var(--text-secondary);
+
+    transition: var(--transition);
+}
+
+.day-button span {
+    font-size: 9px;
+    font-weight: 700;
+}
+
+.day-button strong {
+    font-size: 17px;
+
+    color: var(--text);
+}
+
+.day-button:hover {
+    border-color: var(--primary);
+}
+
+.day-button.active {
+    background: var(--primary);
+
+    border-color: var(--primary);
+
+    color: white;
+}
+
+.day-button.active strong {
+    color: white;
+}
+
+
+/* Timetable container */
+
+.timetable-container {
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-md);
+
+    padding: 20px;
+
+    box-shadow: var(--shadow-sm);
+}
+
+
+/* Day schedule */
+
+.day-schedule {
+    display: none;
+}
+
+.day-schedule.active {
+    display: block;
+}
+
+
+/* Heading */
+
+.schedule-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 18px;
+
+    padding-bottom: 15px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.schedule-heading h2 {
+    font-size: 16px;
+}
+
+.schedule-heading p {
+    margin-top: 4px;
+
+    color: var(--text-muted);
+
+    font-size: 11px;
+}
+
+.class-count {
+    padding: 6px 9px;
+
+    border-radius: 8px;
+
+    background: var(--primary-light);
+
+    color: var(--primary);
+
+    font-size: 10px;
+
+    font-weight: 700;
+}
+
+
+/* Class card */
+
+.class-card {
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+        80px minmax(0, 1fr) auto;
+
+    gap: 18px;
+
+    align-items: center;
+
+    padding: 17px;
+
+    margin-bottom: 10px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 13px;
+
+    background: var(--surface-soft);
+
+    transition: var(--transition);
+}
+
+.class-card:last-child {
+    margin-bottom: 0;
+}
+
+.class-card:hover {
+    border-color: var(--primary);
+
+    transform: translateY(-1px);
+}
+
+
+/* Time */
+
+.class-time {
+    text-align: center;
+
+    padding-right: 15px;
+
+    border-right: 1px solid var(--border);
+}
+
+.class-time strong {
+    display: block;
+
+    font-size: 15px;
+
+    color: var(--text);
+}
+
+.class-time span {
+    display: block;
+
+    margin-top: 3px;
+
+    color: var(--text-muted);
+
+    font-size: 9px;
+}
+
+
+/* Details */
+
+.class-details {
+    min-width: 0;
+}
+
+.subject-code {
+    display: inline-block;
+
+    margin-bottom: 5px;
+
+    padding: 3px 6px;
+
+    border-radius: 5px;
+
+    background: var(--primary-light);
+
+    color: var(--primary);
+
+    font-size: 8px;
+
+    font-weight: 700;
+}
+
+.class-details h3 {
+    font-size: 13px;
+}
+
+.class-details p {
+    margin-top: 4px;
+
+    color: var(--text-secondary);
+
+    font-size: 10px;
+}
+
+
+/* Status */
+
+.class-status {
+    padding: 6px 9px;
+
+    border-radius: 7px;
+
+    background: var(--primary-light);
+
+    color: var(--primary);
+
+    font-size: 9px;
+
+    font-weight: 700;
+}
+
+.class-status.ongoing {
+    background: rgba(22, 163, 74, 0.12);
+
+    color: var(--success);
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .week-selector {
+        gap: 5px;
+
+        overflow-x: auto;
+
+        grid-template-columns:
+            repeat(6, 68px);
+    }
+
+    .day-button {
+        min-width: 68px;
+    }
+
+    .timetable-container {
+        padding: 13px;
+    }
+
+    .class-card {
+        grid-template-columns:
+            58px minmax(0, 1fr);
+
+        gap: 12px;
+
+        padding: 13px;
+    }
+
+    .class-time {
+        padding-right: 10px;
+    }
+
+    .class-time strong {
+        font-size: 13px;
+    }
+
+    .class-details h3 {
+        font-size: 12px;
+    }
+
+    .class-status {
+        grid-column: 2;
+
+        width: fit-content;
+
+        margin-top: -5px;
+    }
+
+    .schedule-heading {
+        align-items: flex-start;
+    }
+
+}
