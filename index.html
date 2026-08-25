@@ -1,0 +1,2627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width,
+                   initial-scale=1.0,
+                   viewport-fit=cover">
+
+    <meta name="theme-color" content="#2563eb">
+
+    <meta name="description"
+          content="CampusOne - Smart College Management System">
+
+    <title>CampusOne</title>
+
+    <link rel="manifest" href="manifest.json">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+</head>
+
+<body>
+
+<div id="app">
+
+<!-- =====================================================
+     LOGIN
+===================================================== -->
+
+<section id="loginScreen" class="screen active">
+
+    <div class="login-container">
+
+        <div class="brand-logo">
+
+            <div class="logo-icon">
+                C
+            </div>
+
+            <div>
+                <h1>CampusOne</h1>
+                <p>College Management System</p>
+            </div>
+
+        </div>
+
+
+        <div class="login-card">
+
+            <h2>Welcome back</h2>
+
+            <p class="login-subtitle">
+                Sign in to continue to CampusOne
+            </p>
+
+
+            <form id="loginForm">
+
+                <div class="input-group">
+
+                    <label for="loginId">
+                        Student / Staff ID
+                    </label>
+
+                    <input
+                        type="text"
+                        id="loginId"
+                        placeholder="Enter your ID"
+                        autocomplete="username"
+                        required>
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <div class="password-wrapper">
+
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            required>
+
+                        <button
+                            type="button"
+                            id="togglePassword"
+                            class="password-toggle">
+
+                            👁
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="login-options">
+
+                    <label class="remember-option">
+
+                        <input
+                            type="checkbox"
+                            id="rememberMe">
+
+                        <span>
+                            Remember me
+                        </span>
+
+                    </label>
+
+
+                    <button
+                        type="button"
+                        class="forgot-btn"
+                        id="forgotPasswordBtn">
+
+                        Forgot password?
+
+                    </button>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="primary-btn login-btn">
+
+                    Sign In
+
+                </button>
+
+            </form>
+
+
+            <div class="demo-login">
+
+                <p>
+                    Demo login
+                </p>
+
+                <div class="demo-buttons">
+
+                    <button data-role="student">
+                        Student
+                    </button>
+
+                    <button data-role="teacher">
+                        Teacher
+                    </button>
+
+                    <button data-role="librarian">
+                        Librarian
+                    </button>
+
+                    <button data-role="principal">
+                        Principal
+                    </button>
+
+                    <button data-role="admin">
+                        Admin
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <p class="login-footer">
+            © <span id="loginYear"></span> CampusOne
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     MAIN APPLICATION
+===================================================== -->
+
+<section id="mainApp" class="screen">
+
+
+<!-- =====================================================
+     TOP BAR
+===================================================== -->
+
+<header class="topbar">
+
+    <button
+        class="icon-btn menu-btn"
+        id="menuBtn">
+
+        ☰
+
+    </button>
+
+
+    <div class="topbar-brand">
+
+        <div class="small-logo">
+            C
+        </div>
+
+        <span>
+            CampusOne
+        </span>
+
+    </div>
+
+
+    <div class="topbar-actions">
+
+        <button
+            class="icon-btn"
+            id="notificationBtn">
+
+            🔔
+
+            <span class="notification-dot"></span>
+
+        </button>
+
+
+        <button
+            class="profile-mini"
+            id="profileBtn">
+
+            <span id="profileInitial">
+                S
+            </span>
+
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     SIDEBAR
+===================================================== -->
+
+<aside id="sidebar" class="sidebar">
+
+    <div class="sidebar-header">
+
+        <div class="sidebar-logo">
+            C
+        </div>
+
+        <div>
+
+            <strong>
+                CampusOne
+            </strong>
+
+            <small id="sidebarRole">
+                Student
+            </small>
+
+        </div>
+
+
+        <button
+            class="close-sidebar"
+            id="closeSidebar">
+
+            ×
+
+        </button>
+
+    </div>
+
+
+    <nav class="sidebar-nav">
+
+        <button
+            class="nav-item active"
+            data-page="dashboard">
+
+            <span>⌂</span>
+            <span>Dashboard</span>
+
+        </button>
+
+
+        <button
+            class="nav-item"
+            data-page="timetable">
+
+            <span>📅</span>
+            <span>Timetable</span>
+
+        </button>
+
+
+        <button
+            class="nav-item"
+            data-page="attendance">
+
+            <span>✓</span>
+            <span>Attendance</span>
+
+        </button>
+
+
+        <button
+            class="nav-item"
+            data-page="exams">
+
+            <span>📝</span>
+            <span>Exams & Results</span>
+
+        </button>
+
+
+        <button
+            class="nav-item"
+            data-page="fees">
+
+            <span>₹</span>
+            <span>Fees</span>
+
+        </button>
+
+
+        <button
+            class="nav-item"
+            data-page="announcements">
+
+            <span>📢</span>
+            <span>Announcements</span>
+
+        </button>
+
+
+        <button
+            class="nav-item"
+            data-page="library">
+
+            <span>📚</span>
+            <span>Library</span>
+
+        </button>
+
+
+        <button
+            class="nav-item"
+            data-page="contacts">
+
+            <span>📞</span>
+            <span>Contacts</span>
+
+        </button>
+
+
+        <button
+            class="nav-item"
+            data-page="messages">
+
+            <span>💬</span>
+            <span>Messages</span>
+
+        </button>
+
+
+        <button
+            class="nav-item"
+            data-page="complaints">
+
+            <span>⚠</span>
+            <span>Complaints</span>
+
+        </button>
+
+
+        <div class="nav-divider"></div>
+
+
+        <button
+            class="nav-item"
+            data-page="settings">
+
+            <span>⚙</span>
+            <span>Settings</span>
+
+        </button>
+
+    </nav>
+
+
+    <div class="sidebar-bottom">
+
+        <button
+            class="logout-btn"
+            id="logoutBtn">
+
+            <span>↪</span>
+            <span>Logout</span>
+
+        </button>
+
+    </div>
+
+</aside>
+
+
+<div
+    id="sidebarOverlay"
+    class="sidebar-overlay">
+</div>
+
+
+<!-- =====================================================
+     MAIN CONTENT
+===================================================== -->
+
+<main class="main-content">
+
+
+<!-- =====================================================
+     DASHBOARD
+===================================================== -->
+
+<section
+    id="dashboardPage"
+    class="page active-page">
+
+
+    <div class="welcome-section">
+
+        <div>
+
+            <p class="welcome-small">
+                Good morning
+            </p>
+
+            <h1>
+                Hello,
+                <span id="userName">
+                    Student
+                </span> 👋
+            </h1>
+
+            <p
+                class="welcome-description"
+                id="userRoleText">
+
+                Here's what's happening with
+                your classes today.
+
+            </p>
+
+        </div>
+
+
+        <div class="date-display">
+
+            <span id="currentDay">
+                Monday
+            </span>
+
+            <strong id="currentDate">
+                25 August 2026
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <!-- STATS -->
+
+    <div class="stats-grid">
+
+        <div class="stat-card">
+
+            <div class="stat-icon attendance-icon">
+                ✓
+            </div>
+
+            <div>
+
+                <span>
+                    Attendance
+                </span>
+
+                <strong id="attendanceStat">
+                    86%
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon exam-icon">
+                📝
+            </div>
+
+            <div>
+
+                <span>
+                    Next Exam
+                </span>
+
+                <strong id="examStat">
+                    12 days
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon fee-icon">
+                ₹
+            </div>
+
+            <div>
+
+                <span>
+                    Pending Fees
+                </span>
+
+                <strong id="feeStat">
+                    ₹2,500
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon library-icon">
+                📚
+            </div>
+
+            <div>
+
+                <span>
+                    Library Books
+                </span>
+
+                <strong id="libraryStat">
+                    2
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- DASHBOARD GRID -->
+
+    <div class="dashboard-grid">
+
+
+        <!-- TODAY'S CLASSES -->
+
+        <div class="dashboard-card">
+
+            <div class="card-header">
+
+                <div>
+
+                    <h2>
+                        Today's Timetable
+                    </h2>
+
+                    <p>
+                        Your classes for today
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="text-btn"
+                    data-page="timetable">
+
+                    View all
+
+                </button>
+
+            </div>
+
+
+            <div class="schedule-list">
+
+                <div class="schedule-item">
+
+                    <div class="schedule-time">
+                        09:00
+                        <small>
+                            10:00
+                        </small>
+                    </div>
+
+                    <div class="schedule-line"></div>
+
+                    <div class="schedule-info">
+
+                        <strong>
+                            Data Mining
+                        </strong>
+
+                        <span>
+                            Dr. Thomas • Room 204
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="schedule-item">
+
+                    <div class="schedule-time">
+                        10:15
+                        <small>
+                            11:15
+                        </small>
+                    </div>
+
+                    <div class="schedule-line"></div>
+
+                    <div class="schedule-info">
+
+                        <strong>
+                            Java Programming
+                        </strong>
+
+                        <span>
+                            Prof. Anil • Lab 2
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="schedule-item">
+
+                    <div class="schedule-time">
+                        11:30
+                        <small>
+                            12:30
+                        </small>
+                    </div>
+
+                    <div class="schedule-line"></div>
+
+                    <div class="schedule-info">
+
+                        <strong>
+                            Computer Networks
+                        </strong>
+
+                        <span>
+                            Prof. Maria • Room 105
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ANNOUNCEMENTS -->
+
+        <div class="dashboard-card">
+
+            <div class="card-header">
+
+                <div>
+
+                    <h2>
+                        Announcements
+                    </h2>
+
+                    <p>
+                        Latest college updates
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="text-btn"
+                    data-page="announcements">
+
+                    View all
+
+                </button>
+
+            </div>
+
+
+            <div class="announcement-list">
+
+                <div class="announcement-item">
+
+                    <div class="announcement-icon">
+                        📢
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Semester examination
+                        </strong>
+
+                        <span>
+                            Exam registration closes
+                            this Friday.
+                        </span>
+
+                        <small>
+                            2 hours ago
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="announcement-item">
+
+                    <div class="announcement-icon">
+                        📅
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            College Arts Festival
+                        </strong>
+
+                        <span>
+                            Registration is now open.
+                        </span>
+
+                        <small>
+                            Yesterday
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="announcement-item">
+
+                    <div class="announcement-icon">
+                        ⚠
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Library notice
+                        </strong>
+
+                        <span>
+                            Return overdue books.
+                        </span>
+
+                        <small>
+                            2 days ago
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- QUICK ACTIONS -->
+
+    <div class="dashboard-card">
+
+        <div class="card-header">
+
+            <div>
+
+                <h2>
+                    Quick Actions
+                </h2>
+
+                <p>
+                    Frequently used services
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="quick-actions">
+
+            <button data-page="attendance">
+
+                <span>✓</span>
+
+                <strong>
+                    Attendance
+                </strong>
+
+            </button>
+
+
+            <button data-page="exams">
+
+                <span>📝</span>
+
+                <strong>
+                    Results
+                </strong>
+
+            </button>
+
+
+            <button data-page="fees">
+
+                <span>₹</span>
+
+                <strong>
+                    Pay Fees
+                </strong>
+
+            </button>
+
+
+            <button data-page="library">
+
+                <span>📚</span>
+
+                <strong>
+                    Library
+                </strong>
+
+            </button>
+
+
+            <button data-page="contacts">
+
+                <span>📞</span>
+
+                <strong>
+                    Contacts
+                </strong>
+
+            </button>
+
+
+            <button data-page="complaints">
+
+                <span>⚠</span>
+
+                <strong>
+                    Complaint
+                </strong>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     TIMETABLE
+===================================================== -->
+
+<section
+    id="timetablePage"
+    class="page">
+
+
+    <div class="page-heading">
+
+        <h1>
+            Timetable
+        </h1>
+
+        <p>
+            View your weekly class schedule.
+        </p>
+
+    </div>
+
+
+    <!-- WEEK SELECTOR -->
+
+    <div class="week-selector">
+
+        <button
+            class="day-button active"
+            data-day="monday">
+
+            <span>
+                MON
+            </span>
+
+            <strong>
+                25
+            </strong>
+
+        </button>
+
+
+        <button
+            class="day-button"
+            data-day="tuesday">
+
+            <span>
+                TUE
+            </span>
+
+            <strong>
+                26
+            </strong>
+
+        </button>
+
+
+        <button
+            class="day-button"
+            data-day="wednesday">
+
+            <span>
+                WED
+            </span>
+
+            <strong>
+                27
+            </strong>
+
+        </button>
+
+
+        <button
+            class="day-button"
+            data-day="thursday">
+
+            <span>
+                THU
+            </span>
+
+            <strong>
+                28
+            </strong>
+
+        </button>
+
+
+        <button
+            class="day-button"
+            data-day="friday">
+
+            <span>
+                FRI
+            </span>
+
+            <strong>
+                29
+            </strong>
+
+        </button>
+
+
+        <button
+            class="day-button"
+            data-day="saturday">
+
+            <span>
+                SAT
+            </span>
+
+            <strong>
+                30
+            </strong>
+
+        </button>
+
+    </div>
+
+
+    <!-- TIMETABLE CONTENT -->
+
+    <div class="timetable-container">
+
+
+        <!-- MONDAY -->
+
+        <div
+            class="day-schedule active"
+            data-schedule="monday">
+
+            <div class="schedule-heading">
+
+                <div>
+
+                    <h2>
+                        Monday
+                    </h2>
+
+                    <p>
+                        25 August 2026
+                    </p>
+
+                </div>
+
+                <span class="class-count">
+                    5 Classes
+                </span>
+
+            </div>
+
+
+            <div class="class-card">
+
+                <div class="class-time">
+
+                    <strong>
+                        09:00
+                    </strong>
+
+                    <span>
+                        10:00 AM
+                    </span>
+
+                </div>
+
+
+                <div class="class-details">
+
+                    <span class="subject-code">
+                        BCM6B14
+                    </span>
+
+                    <h3>
+                        Data Mining
+                    </h3>
+
+                    <p>
+                        👨‍🏫 Dr. Thomas
+                    </p>
+
+                    <p>
+                        📍 Room 204
+                    </p>
+
+                </div>
+
+
+                <div class="class-status ongoing">
+                    Class
+                </div>
+
+            </div>
+
+
+            <div class="class-card">
+
+                <div class="class-time">
+
+                    <strong>
+                        10:15
+                    </strong>
+
+                    <span>
+                        11:15 AM
+                    </span>
+
+                </div>
+
+
+                <div class="class-details">
+
+                    <span class="subject-code">
+                        BCS6B12
+                    </span>
+
+                    <h3>
+                        Java Programming
+                    </h3>
+
+                    <p>
+                        👨‍🏫 Prof. Anil
+                    </p>
+
+                    <p>
+                        📍 Computer Lab 2
+                    </p>
+
+                </div>
+
+
+                <div class="class-status">
+                    Class
+                </div>
+
+            </div>
+
+
+            <div class="class-card">
+
+                <div class="class-time">
+
+                    <strong>
+                        11:30
+                    </strong>
+
+                    <span>
+                        12:30 PM
+                    </span>
+
+                </div>
+
+
+                <div class="class-details">
+
+                    <span class="subject-code">
+                        BCS6B10
+                    </span>
+
+                    <h3>
+                        Computer Networks
+                    </h3>
+
+                    <p>
+                        👩‍🏫 Prof. Maria
+                    </p>
+
+                    <p>
+                        📍 Room 105
+                    </p>
+
+                </div>
+
+
+                <div class="class-status">
+                    Class
+                </div>
+
+            </div>
+
+
+            <div class="class-card">
+
+                <div class="class-time">
+
+                    <strong>
+                        01:30
+                    </strong>
+
+                    <span>
+                        02:30 PM
+                    </span>
+
+                </div>
+
+
+                <div class="class-details">
+
+                    <span class="subject-code">
+                        BCS6B08
+                    </span>
+
+                    <h3>
+                        Web Technology
+                    </h3>
+
+                    <p>
+                        👨‍🏫 Prof. Rahul
+                    </p>
+
+                    <p>
+                        📍 Room 301
+                    </p>
+
+                </div>
+
+
+                <div class="class-status">
+                    Class
+                </div>
+
+            </div>
+
+
+            <div class="class-card">
+
+                <div class="class-time">
+
+                    <strong>
+                        02:45
+                    </strong>
+
+                    <span>
+                        03:45 PM
+                    </span>
+
+                </div>
+
+
+                <div class="class-details">
+
+                    <span class="subject-code">
+                        BCS6B16
+                    </span>
+
+                    <h3>
+                        Project
+                    </h3>
+
+                    <p>
+                        👩‍🏫 Prof. Meera
+                    </p>
+
+                    <p>
+                        📍 Project Lab
+                    </p>
+
+                </div>
+
+
+                <div class="class-status">
+                    Project
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- TUESDAY -->
+
+        <div
+            class="day-schedule"
+            data-schedule="tuesday">
+
+            <div class="schedule-heading">
+
+                <div>
+
+                    <h2>
+                        Tuesday
+                    </h2>
+
+                    <p>
+                        26 August 2026
+                    </p>
+
+                </div>
+
+                <span class="class-count">
+                    4 Classes
+                </span>
+
+            </div>
+
+
+            <div class="class-card">
+
+                <div class="class-time">
+
+                    <strong>
+                        09:00
+                    </strong>
+
+                    <span>
+                        10:00 AM
+                    </span>
+
+                </div>
+
+
+                <div class="class-details">
+
+                    <span class="subject-code">
+                        BCS6B10
+                    </span>
+
+                    <h3>
+                        Computer Networks
+                    </h3>
+
+                    <p>
+                        👩‍🏫 Prof. Maria
+                    </p>
+
+                    <p>
+                        📍 Room 105
+                    </p>
+
+                </div>
+
+                <div class="class-status">
+                    Class
+                </div>
+
+            </div>
+
+
+            <div class="class-card">
+
+                <div class="class-time">
+
+                    <strong>
+                        10:15
+                    </strong>
+
+                    <span>
+                        11:15 AM
+                    </span>
+
+                </div>
+
+                <div class="class-details">
+
+                    <span class="subject-code">
+                        BCM6B14
+                    </span>
+
+                    <h3>
+                        Data Mining
+                    </h3>
+
+                    <p>
+                        👨‍🏫 Dr. Thomas
+                    </p>
+
+                    <p>
+                        📍 Room 204
+                    </p>
+
+                </div>
+
+                <div class="class-status">
+                    Class
+                </div>
+
+            </div>
+
+
+            <div class="class-card">
+
+                <div class="class-time">
+
+                    <strong>
+                        11:30
+                    </strong>
+
+                    <span>
+                        12:30 PM
+                    </span>
+
+                </div>
+
+                <div class="class-details">
+
+                    <span class="subject-code">
+                        BCS6B12
+                    </span>
+
+                    <h3>
+                        Java Programming
+                    </h3>
+
+                    <p>
+                        👨‍🏫 Prof. Anil
+                    </p>
+
+                    <p>
+                        📍 Computer Lab 2
+                    </p>
+
+                </div>
+
+                <div class="class-status">
+                    Class
+                </div>
+
+            </div>
+
+
+            <div class="class-card">
+
+                <div class="class-time">
+
+                    <strong>
+                        01:30
+                    </strong>
+
+                    <span>
+                        02:30 PM
+                    </span>
+
+                </div>
+
+                <div class="class-details">
+
+                    <span class="subject-code">
+                        BCS6B08
+                    </span>
+
+                    <h3>
+                        Web Technology
+                    </h3>
+
+                    <p>
+                        👨‍🏫 Prof. Rahul
+                    </p>
+
+                    <p>
+                        📍 Room 301
+                    </p>
+
+                </div>
+
+                <div class="class-status">
+                    Class
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- WEDNESDAY -->
+
+        <div
+            class="day-schedule"
+            data-schedule="wednesday">
+
+            <div class="schedule-heading">
+
+                <div>
+
+                    <h2>
+                        Wednesday
+                    </h2>
+
+                    <p>
+                        27 August 2026
+                    </p>
+
+                </div>
+
+                <span class="class-count">
+                    4 Classes
+                </span>
+
+            </div>
+
+
+            <div class="class-card">
+
+                <div class="class-time">
+                    <strong>09:00</strong>
+                    <span>10:00 AM</span>
+                </div>
+
+                <div class="class-details">
+
+                    <span class="subject-code">
+                        BCS6B12
+                    </span>
+
+                    <h3>
+                        Java Programming
+                    </h3>
+
+                    <p>
+                        👨‍🏫 Prof. Anil
+                    </p>
+
+                    <p>
+                        📍 Computer Lab 2
+                    </p>
+
+                </div>
+
+                <div class="class-status">
+                    Class
+                </div>
+
+            </div>
+
+
+            <div class="class-card">
+
+                <div class="class-time">
+                    <strong>10:15</strong>
+                    <span>11:15 AM</span>
+                </div>
+
+                <div class="class-details">
+
+                    <span class="subject-code">
+                        BCS6B16
+                    </span>
+
+                    <h3>
+                        Project
+                    </h3>
+
+                    <p>
+                        👩‍🏫 Prof. Meera
+                    </p>
+
+                    <p>
+                        📍 Project Lab
+                    </p>
+
+                </div>
+
+                <div class="class-status">
+                    Project
+                </div>
+
+            </div>
+
+
+            <div class="class-card">
+
+                <div class="class-time">
+                    <strong>11:30</strong>
+                    <span>12:30 PM</span>
+                </div>
+
+                <div class="class-details">
+
+                    <span class="subject-code">
+                        BCM6B14
+                    </span>
+
+                    <h3>
+                        Data Mining
+                    </h3>
+
+                    <p>
+                        👨‍🏫 Dr. Thomas
+                    </p>
+
+                    <p>
+                        📍 Room 204
+                    </p>
+
+                </div>
+
+                <div class="class-status">
+                    Class
+                </div>
+
+            </div>
+
+
+            <div class="class-card">
+
+                <div class="class-time">
+                    <strong>01:30</strong>
+                    <span>02:30 PM</span>
+                </div>
+
+                <div class="class-details">
+
+                    <span class="subject-code">
+                        BCS6B10
+                    </span>
+
+                    <h3>
+                        Computer Networks
+                    </h3>
+
+                    <p>
+                        👩‍🏫 Prof. Maria
+                    </p>
+
+                    <p>
+                        📍 Room 105
+                    </p>
+
+                </div>
+
+                <div class="class-status">
+                    Class
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- THURSDAY -->
+
+        <div
+            class="day-schedule"
+            data-schedule="thursday">
+
+            <div class="schedule-heading">
+
+                <div>
+
+                    <h2>
+                        Thursday
+                    </h2>
+
+                    <p>
+                        28 August 2026
+                    </p>
+
+                </div>
+
+                <span class="class-count">
+                    5 Classes
+                </span>
+
+            </div>
+
+
+            <div class="class-card">
+
+                <div class="class-time">
+                    <strong>09:00</strong>
+                    <span>10:00 AM</span>
+                </div>
+
+                <div class="class-details">
+
+                    <span class="subject-code">
+                        BCS6B08
+                    </span>
+
+                    <h3>
+                        Web Technology
+                    </h3>
+
+                    <p>
+                        👨‍🏫 Prof. Rahul
+                    </p>
+
+                    <p>
+                        📍 Room 301
+                    </p>
+
+                </div>
+
+                <div class="class-status">
+                    Class
+                </div>
+
+            </div>
+
+
+            <div class="class-card">
+
+                <div class="class-time">
+                    <strong>10:15</strong>
+                    <span>11:15 AM</span>
+                </div>
+
+                <div class="class-details">
+
+                    <span class="subject-code">
+                        BCS6B10
+                    </span>
+
+                    <h3>
+                        Computer Networks
+                    </h3>
+
+                    <p>
+                        👩‍🏫 Prof. Maria
+                    </p>
+
+                    <p>
+                        📍 Room 105
+                    </p>
+
+                </div>
+
+                <div class="class-status">
+                    Class
+                </div>
+
+            </div>
+
+
+            <div class="class-card">
+
+                <div class="class-time">
+                    <strong>11:30</strong>
+                    <span>12:30 PM</span>
+                </div>
+
+                <div class="class-details">
+
+                    <span class="subject-code">
+                        BCS6B12
+                    </span>
+
+                    <h3>
+                        Java Programming
+                    </h3>
+
+                    <p>
+                        👨‍🏫 Prof. Anil
+                    </p>
+
+                    <p>
+                        📍 Computer Lab 2
+                    </p>
+
+                </div>
+
+                <div class="class-status">
+                    Class
+                </div>
+
+            </div>
+
+
+            <div class="class-card">
+
+                <div class="class-time">
+                    <strong>01:30</strong>
+                    <span>02:30 PM</span>
+                </div>
+
+                <div class="class-details">
+
+                    <span class="subject-code">
+                        BCM6B14
+                    </span>
+
+                    <h3>
+                        Data Mining
+                    </h3>
+
+                    <p>
+                        👨‍🏫 Dr. Thomas
+                    </p>
+
+                    <p>
+                        📍 Room 204
+                    </p>
+
+                </div>
+
+                <div class="class-status">
+                    Class
+                </div>
+
+            </div>
+
+
+            <div class="class-card">
+
+                <div class="class-time">
+                    <strong>02:45</strong>
+                    <span>03:45 PM</span>
+                </div>
+
+                <div class="class-details">
+
+                    <span class="subject-code">
+                        BCS6B16
+                    </span>
+
+                    <h3>
+                        Project
+                    </h3>
+
+                    <p>
+                        👩‍🏫 Prof. Meera
+                    </p>
+
+                    <p>
+                        📍 Project Lab
+                    </p>
+
+                </div>
+
+                <div class="class-status">
+                    Project
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- FRIDAY -->
+
+        <div
+            class="day-schedule"
+            data-schedule="friday">
+
+            <div class="schedule-heading">
+
+                <div>
+
+                    <h2>
+                        Friday
+                    </h2>
+
+                    <p>
+                        29 August 2026
+                    </p>
+
+                </div>
+
+                <span class="class-count">
+                    4 Classes
+                </span>
+
+            </div>
+
+
+            <div class="class-card">
+
+                <div class="class-time">
+                    <strong>09:00</strong>
+                    <span>10:00 AM</span>
+                </div>
+
+                <div class="class-details">
+
+                    <span class="subject-code">
+                        BCM6B14
+                    </span>
+
+                    <h3>
+                        Data Mining
+                    </h3>
+
+                    <p>
+                        👨‍🏫 Dr. Thomas
+                    </p>
+
+                    <p>
+                        📍 Room 204
+                    </p>
+
+                </div>
+
+                <div class="class-status">
+                    Class
+                </div>
+
+            </div>
+
+
+            <div class="class-card">
+
+                <div class="class-time">
+                    <strong>10:15</strong>
+                    <span>11:15 AM</span>
+                </div>
+
+                <div class="class-details">
+
+                    <span class="subject-code">
+                        BCS6B08
+                    </span>
+
+                    <h3>
+                        Web Technology
+                    </h3>
+
+                    <p>
+                        👨‍🏫 Prof. Rahul
+                    </p>
+
+                    <p>
+                        📍 Room 301
+                    </p>
+
+                </div>
+
+                <div class="class-status">
+                    Class
+                </div>
+
+            </div>
+
+
+            <div class="class-card">
+
+                <div class="class-time">
+                    <strong>11:30</strong>
+                    <span>12:30 PM</span>
+                </div>
+
+                <div class="class-details">
+
+                    <span class="subject-code">
+                        BCS6B12
+                    </span>
+
+                    <h3>
+                        Java Programming
+                    </h3>
+
+                    <p>
+                        👨‍🏫 Prof. Anil
+                    </p>
+
+                    <p>
+                        📍 Computer Lab 2
+                    </p>
+
+                </div>
+
+                <div class="class-status">
+                    Class
+                </div>
+
+            </div>
+
+
+            <div class="class-card">
+
+                <div class="class-time">
+                    <strong>01:30</strong>
+                    <span>02:30 PM</span>
+                </div>
+
+                <div class="class-details">
+
+                    <span class="subject-code">
+                        BCS6B10
+                    </span>
+
+                    <h3>
+                        Computer Networks
+                    </h3>
+
+                    <p>
+                        👩‍🏫 Prof. Maria
+                    </p>
+
+                    <p>
+                        📍 Room 105
+                    </p>
+
+                </div>
+
+                <div class="class-status">
+                    Class
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- SATURDAY -->
+
+        <div
+            class="day-schedule"
+            data-schedule="saturday">
+
+            <div class="schedule-heading">
+
+                <div>
+
+                    <h2>
+                        Saturday
+                    </h2>
+
+                    <p>
+                        30 August 2026
+                    </p>
+
+                </div>
+
+                <span class="class-count">
+                    2 Classes
+                </span>
+
+            </div>
+
+
+            <div class="class-card">
+
+                <div class="class-time">
+                    <strong>09:00</strong>
+                    <span>10:00 AM</span>
+                </div>
+
+                <div class="class-details">
+
+                    <span class="subject-code">
+                        BCS6B16
+                    </span>
+
+                    <h3>
+                        Project
+                    </h3>
+
+                    <p>
+                        👩‍🏫 Prof. Meera
+                    </p>
+
+                    <p>
+                        📍 Project Lab
+                    </p>
+
+                </div>
+
+                <div class="class-status">
+                    Project
+                </div>
+
+            </div>
+
+
+            <div class="class-card">
+
+                <div class="class-time">
+                    <strong>10:15</strong>
+                    <span>11:15 AM</span>
+                </div>
+
+                <div class="class-details">
+
+                    <span class="subject-code">
+                        BCS6B08
+                    </span>
+
+                    <h3>
+                        Web Technology
+                    </h3>
+
+                    <p>
+                        👨‍🏫 Prof. Rahul
+                    </p>
+
+                    <p>
+                        📍 Room 301
+                    </p>
+
+                </div>
+
+                <div class="class-status">
+                    Class
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     OTHER MODULES
+===================================================== -->
+
+<section id="attendancePage" class="page">
+
+    <div class="page-heading">
+
+        <h1>
+            Attendance
+        </h1>
+
+        <p>
+            View your attendance history and percentage.
+        </p>
+
+    </div>
+
+    <div class="empty-page-card">
+
+        ✓
+
+        <h2>
+            Attendance Module
+        </h2>
+
+        <p>
+            Attendance history and academic
+            calendar will be added next.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section id="examsPage" class="page">
+
+    <div class="page-heading">
+
+        <h1>
+            Exams & Results
+        </h1>
+
+        <p>
+            View examination schedules and results.
+        </p>
+
+    </div>
+
+    <div class="empty-page-card">
+
+        📝
+
+        <h2>
+            Examination Module
+        </h2>
+
+        <p>
+            Examination schedules and results
+            will be added later.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section id="feesPage" class="page">
+
+    <div class="page-heading">
+
+        <h1>
+            Fees
+        </h1>
+
+        <p>
+            View fees, payments and pending amounts.
+        </p>
+
+    </div>
+
+    <div class="empty-page-card">
+
+        ₹
+
+        <h2>
+            Fees Module
+        </h2>
+
+        <p>
+            UPI QR, bank details,
+            payment screenshots and receipts
+            will be added later.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section id="announcementsPage" class="page">
+
+    <div class="page-heading">
+
+        <h1>
+            Announcements
+        </h1>
+
+        <p>
+            College announcements and upcoming events.
+        </p>
+
+    </div>
+
+    <div class="empty-page-card">
+
+        📢
+
+        <h2>
+            Announcements Module
+        </h2>
+
+        <p>
+            Announcements and events
+            will be added later.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section id="libraryPage" class="page">
+
+    <div class="page-heading">
+
+        <h1>
+            Library
+        </h1>
+
+        <p>
+            Search books and view borrowing history.
+        </p>
+
+    </div>
+
+    <div class="empty-page-card">
+
+        📚
+
+        <h2>
+            Library Module
+        </h2>
+
+        <p>
+            Library functionality will be added later.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section id="contactsPage" class="page">
+
+    <div class="page-heading">
+
+        <h1>
+            Contacts
+        </h1>
+
+        <p>
+            Contact teachers and college staff.
+        </p>
+
+    </div>
+
+    <div class="empty-page-card">
+
+        📞
+
+        <h2>
+            Contacts Module
+        </h2>
+
+        <p>
+            Phone and WhatsApp integration
+            will be added later.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section id="messagesPage" class="page">
+
+    <div class="page-heading">
+
+        <h1>
+            Messages
+        </h1>
+
+        <p>
+            Personal messages.
+        </p>
+
+    </div>
+
+    <div class="empty-page-card">
+
+        💬
+
+        <h2>
+            Messaging Module
+        </h2>
+
+        <p>
+            Cloud messaging will be added later.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section id="complaintsPage" class="page">
+
+    <div class="page-heading">
+
+        <h1>
+            Complaints
+        </h1>
+
+        <p>
+            Submit and track complaints.
+        </p>
+
+    </div>
+
+    <div class="empty-page-card">
+
+        ⚠
+
+        <h2>
+            Complaint Module
+        </h2>
+
+        <p>
+            Complaint submission and tracking
+            will be added later.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section id="settingsPage" class="page">
+
+    <div class="page-heading">
+
+        <h1>
+            Settings
+        </h1>
+
+        <p>
+            Customize your CampusOne experience.
+        </p>
+
+    </div>
+
+
+    <div class="settings-card">
+
+        <div class="setting-row">
+
+            <div>
+
+                <strong>
+                    Dark Mode
+                </strong>
+
+                <span>
+                    Switch between light and dark appearance.
+                </span>
+
+            </div>
+
+
+            <button
+                id="themeToggle"
+                class="theme-toggle">
+
+                🌙
+
+            </button>
+
+        </div>
+
+
+        <div class="setting-row">
+
+            <div>
+
+                <strong>
+                    Report a Bug
+                </strong>
+
+                <span>
+                    Tell us about a problem.
+                </span>
+
+            </div>
+
+
+            <button
+                class="setting-action"
+                data-setting="bug">
+
+                Report
+
+            </button>
+
+        </div>
+
+
+        <div class="setting-row">
+
+            <div>
+
+                <strong>
+                    Suggest a Feature
+                </strong>
+
+                <span>
+                    Help improve CampusOne.
+                </span>
+
+            </div>
+
+
+            <button
+                class="setting-action"
+                data-setting="feature">
+
+                Suggest
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<!-- =====================================================
+     MOBILE NAVIGATION
+===================================================== -->
+
+<nav class="bottom-nav">
+
+    <button
+        class="bottom-nav-item active"
+        data-page="dashboard">
+
+        <span>⌂</span>
+        <small>Home</small>
+
+    </button>
+
+
+    <button
+        class="bottom-nav-item"
+        data-page="timetable">
+
+        <span>📅</span>
+        <small>Timetable</small>
+
+    </button>
+
+
+    <button
+        class="bottom-nav-item"
+        data-page="attendance">
+
+        <span>✓</span>
+        <small>Attendance</small>
+
+    </button>
+
+
+    <button
+        class="bottom-nav-item"
+        data-page="fees">
+
+        <span>₹</span>
+        <small>Fees</small>
+
+    </button>
+
+
+    <button
+        class="bottom-nav-item"
+        data-page="settings">
+
+        <span>⚙</span>
+        <small>More</small>
+
+    </button>
+
+</nav>
+
+
+</section>
+
+</div>
+
+
+<script src="js/app.js"></script>
+
+
+<!-- =====================================================
+     TIMETABLE JAVASCRIPT
+===================================================== -->
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        const dayButtons =
+            document.querySelectorAll(
+                ".day-button"
+            );
+
+
+        const schedules =
+            document.querySelectorAll(
+                ".day-schedule"
+            );
+
+
+        dayButtons.forEach(button => {
+
+            button.addEventListener(
+                "click",
+                function () {
+
+                    const selectedDay =
+                        this.dataset.day;
+
+
+                    /*
+                       Remove active state
+                       from every day button.
+                    */
+
+                    dayButtons.forEach(btn => {
+
+                        btn.classList.remove(
+                            "active"
+                        );
+
+                    });
+
+
+                    /*
+                       Activate selected day.
+                    */
+
+                    this.classList.add(
+                        "active"
+                    );
+
+
+                    /*
+                       Hide all schedules.
+                    */
+
+                    schedules.forEach(schedule => {
+
+                        schedule.classList.remove(
+                            "active"
+                        );
+
+                    });
+
+
+                    /*
+                       Show selected schedule.
+                    */
+
+                    const selectedSchedule =
+                        document.querySelector(
+                            `[data-schedule="${selectedDay}"]`
+                        );
+
+
+                    if (selectedSchedule) {
+
+                        selectedSchedule.classList.add(
+                            "active"
+                        );
+
+                    }
+
+                }
+            );
+
+        });
+
+    }
+);
+
+</script>
+
+
+</body>
+</html>
