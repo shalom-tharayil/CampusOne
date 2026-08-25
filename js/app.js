@@ -513,69 +513,92 @@ document.addEventListener("DOMContentLoaded", () => {
     /* =================================================
        TIMETABLE
     ================================================= */
+/* =================================================
+   TIMETABLE
+================================================= */
 
-    const dayButtons =
-        document.querySelectorAll(
-            ".day-button"
-        );
+const dayButtons =
+    document.querySelectorAll(".day-button");
 
-    const schedules =
-        document.querySelectorAll(
-            ".day-schedule"
-        );
+const schedules =
+    document.querySelectorAll(".day-schedule");
 
+
+function showTimetableDay(day) {
+
+    /* Remove active from all buttons */
 
     dayButtons.forEach(button => {
 
-        button.addEventListener(
-            "click",
-            () => {
-
-                const selectedDay =
-                    button.dataset.day;
-
-
-                dayButtons.forEach(btn => {
-
-                    btn.classList.remove(
-                        "active"
-                    );
-
-                });
-
-
-                button.classList.add(
-                    "active"
-                );
-
-
-                schedules.forEach(schedule => {
-
-                    schedule.classList.remove(
-                        "active"
-                    );
-
-                });
-
-
-                const selectedSchedule =
-                    document.querySelector(
-                        `.day-schedule[data-schedule="${selectedDay}"]`
-                    );
-
-
-                if (selectedSchedule) {
-
-                    selectedSchedule.classList.add(
-                        "active"
-                    );
-
-                }
-
-            }
-        );
+        button.classList.remove("active");
 
     });
+
+
+    /* Hide ALL schedules */
+
+    schedules.forEach(schedule => {
+
+        schedule.classList.remove("active");
+
+    });
+
+
+    /* Activate selected button */
+
+    const selectedButton =
+        document.querySelector(
+            `.day-button[data-day="${day}"]`
+        );
+
+
+    if (selectedButton) {
+
+        selectedButton.classList.add("active");
+
+    }
+
+
+    /* Show ONLY selected schedule */
+
+    const selectedSchedule =
+        document.querySelector(
+            `.day-schedule[data-schedule="${day}"]`
+        );
+
+
+    if (selectedSchedule) {
+
+        selectedSchedule.classList.add("active");
+
+    }
+
+}
+
+
+/* Button click */
+
+dayButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const day =
+            button.getAttribute("data-day");
+
+        showTimetableDay(day);
+
+    });
+
+});
+
+
+/* Default day */
+
+if (dayButtons.length > 0) {
+
+    showTimetableDay("monday");
+
+}
 
 
     /* =================================================
