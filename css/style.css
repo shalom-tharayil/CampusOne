@@ -972,92 +972,251 @@ img {
 
 
 /* =====================================================
-   TIMETABLE
+   CAMPUSONE TIMETABLE - FIXED
 ===================================================== */
 
-.schedule-list {
+.week-selector {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+}
+
+.day-button {
+    flex: 1;
+    min-width: 65px;
+    padding: 10px 8px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--surface);
+    color: var(--text-secondary);
+    cursor: pointer;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    gap: 3px;
 }
 
-.schedule-item {
-    display: grid;
-
-    grid-template-columns: 55px 3px 1fr;
-
-    gap: 10px;
-
-    min-height: 67px;
-}
-
-.schedule-time {
-    color: var(--text);
-
-    font-size: 11px;
+.day-button span {
+    font-size: 9px;
     font-weight: 700;
 }
 
-.schedule-time small {
-    display: block;
+.day-button strong {
+    font-size: 17px;
+    color: var(--text);
+}
 
-    margin-top: 3px;
+.day-button.active {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: white;
+}
 
+.day-button.active strong {
+    color: white;
+}
+
+
+/* =====================================================
+   IMPORTANT: ONLY SELECTED DAY IS VISIBLE
+===================================================== */
+
+.day-schedule {
+    display: none !important;
+}
+
+.day-schedule.active {
+    display: block !important;
+}
+
+
+/* =====================================================
+   TIMETABLE CONTAINER
+===================================================== */
+
+.timetable-container {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+}
+
+
+/* =====================================================
+   DAY HEADING
+===================================================== */
+
+.schedule-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border);
+}
+
+.schedule-heading h2 {
+    margin: 0;
+    font-size: 17px;
+}
+
+.schedule-heading p {
+    margin: 4px 0 0;
     color: var(--text-muted);
+    font-size: 11px;
+}
 
+.class-count {
+    padding: 6px 9px;
+    border-radius: 8px;
+    background: var(--primary-light);
+    color: var(--primary);
+    font-size: 10px;
+    font-weight: 700;
+}
+
+
+/* =====================================================
+   CLASS CARD
+===================================================== */
+
+.class-card {
+    display: grid;
+    grid-template-columns: 80px minmax(0, 1fr) auto;
+    gap: 18px;
+    align-items: center;
+
+    padding: 16px;
+
+    margin-bottom: 10px;
+
+    border: 1px solid var(--border);
+    border-radius: 13px;
+
+    background: var(--surface-soft);
+}
+
+.class-card:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =====================================================
+   TIME
+===================================================== */
+
+.class-time {
+    text-align: center;
+    padding-right: 15px;
+    border-right: 1px solid var(--border);
+}
+
+.class-time strong {
+    display: block;
+    font-size: 15px;
+    color: var(--text);
+}
+
+.class-time span {
+    display: block;
+    margin-top: 3px;
+    color: var(--text-muted);
     font-size: 9px;
 }
 
-.schedule-line {
-    position: relative;
 
-    width: 3px;
+/* =====================================================
+   DETAILS
+===================================================== */
 
+.class-details {
+    min-width: 0;
+}
+
+.subject-code {
+    display: inline-block;
+    margin-bottom: 5px;
+    padding: 3px 6px;
     border-radius: 5px;
-
-    background: var(--primary);
+    background: var(--primary-light);
+    color: var(--primary);
+    font-size: 8px;
+    font-weight: 700;
 }
 
-.schedule-line::before {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: 50%;
-
-    transform: translate(-50%, 0);
-
-    width: 9px;
-    height: 9px;
-
-    background: var(--primary);
-
-    border: 2px solid var(--surface);
-
-    border-radius: 50%;
+.class-details h3 {
+    margin: 0;
+    font-size: 14px;
 }
 
-.schedule-info {
-    padding-bottom: 17px;
-}
-
-.schedule-info strong {
-    display: block;
-
-    font-size: 12px;
-}
-
-.schedule-info span {
-    display: block;
-
-    margin-top: 4px;
-
+.class-details p {
+    margin: 4px 0 0;
     color: var(--text-secondary);
-
     font-size: 10px;
 }
 
 
+/* =====================================================
+   STATUS
+===================================================== */
+
+.class-status {
+    padding: 6px 9px;
+    border-radius: 7px;
+    background: var(--primary-light);
+    color: var(--primary);
+    font-size: 9px;
+    font-weight: 700;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .week-selector {
+        display: flex;
+        overflow-x: auto;
+        gap: 6px;
+    }
+
+    .day-button {
+        flex: 0 0 62px;
+        min-width: 62px;
+    }
+
+    .timetable-container {
+        padding: 13px;
+    }
+
+    .class-card {
+        grid-template-columns: 60px minmax(0, 1fr);
+        gap: 12px;
+    }
+
+    .class-time {
+        padding-right: 9px;
+    }
+
+    .class-time strong {
+        font-size: 13px;
+    }
+
+    .class-details h3 {
+        font-size: 13px;
+    }
+
+    .class-status {
+        grid-column: 2;
+        width: fit-content;
+    }
+
+}
 /* =====================================================
    ANNOUNCEMENTS
 ===================================================== */
